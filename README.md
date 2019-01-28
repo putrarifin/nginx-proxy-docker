@@ -1,10 +1,14 @@
 # Docker + Letsencrypt + nginx proxy
 
-## How to install
+## First create the network
+```
+docker network create nginx-proxy
+```
 
+## How to install
 Start the solution, go to the ```nginx-proxy``` folder and launch
 
-```bash
+```
 docker-compose up -d
 ```
 
