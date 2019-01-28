@@ -10,10 +10,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - $PATH_ROOT/nginx-proxy/conf.d:/etc/nginx/conf.d
-      - $PATH_ROOT/nginx-proxy/vhost.d:/etc/nginx/vhost.d
-      - $PATH_ROOT/nginx-proxy/html:/usr/share/nginx/html
-      - $PATH_ROOT/nginx-proxy/certs:/etc/nginx/certs:ro
+      - $PATH_ROOT/nginx-proxy-nginx/conf.d:/etc/nginx/conf.d
+      - $PATH_ROOT/nginx-proxy-nginx/vhost.d:/etc/nginx/vhost.d
+      - $PATH_ROOT/nginx-proxy-nginx/html:/usr/share/nginx/html
+      - $PATH_ROOT/nginx-proxy-nginx/certs:/etc/nginx/certs:ro
 
   nginx-gen:
     image: jwilder/docker-gen
@@ -21,22 +21,22 @@ services:
     container_name: nginx-gen
     restart: unless-stopped
     volumes:
-      - $PATH_ROOT/nginx-proxy/conf.d:/etc/nginx/conf.d
-      - $PATH_ROOT/nginx-proxy/vhost.d:/etc/nginx/vhost.d
-      - $PATH_ROOT/nginx-proxy/html:/usr/share/nginx/html
-      - $PATH_ROOT/nginx-proxy/certs:/etc/nginx/certs:ro
+      - $PATH_ROOT/nginx-proxy-nginx/conf.d:/etc/nginx/conf.d
+      - $PATH_ROOT/nginx-proxy-nginx/vhost.d:/etc/nginx/vhost.d
+      - $PATH_ROOT/nginx-proxy-nginx/html:/usr/share/nginx/html
+      - $PATH_ROOT/nginx-proxy-nginx/certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - $PATH_ROOT/nginx-proxy/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+      - $PATH_ROOT/nginx-proxy-nginx/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
 
   nginx-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-letsencrypt
     restart: unless-stopped
     volumes:
-      - $PATH_ROOT/nginx-proxy/conf.d:/etc/nginx/conf.d
-      - $PATH_ROOT/nginx-proxy/vhost.d:/etc/nginx/vhost.d
-      - $PATH_ROOT/nginx-proxy/html:/usr/share/nginx/html
-      - $PATH_ROOT/nginx-proxy/certs:/etc/nginx/certs:rw
+      - $PATH_ROOT/nginx-proxy-nginx/conf.d:/etc/nginx/conf.d
+      - $PATH_ROOT/nginx-proxy-nginx/vhost.d:/etc/nginx/vhost.d
+      - $PATH_ROOT/nginx-proxy-nginx/html:/usr/share/nginx/html
+      - $PATH_ROOT/nginx-proxy-nginx/certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       NGINX_DOCKER_GEN_CONTAINER: "nginx-gen"
