@@ -12,22 +12,16 @@ Start the solution, go to the ```nginx-proxy``` folder and launch
 docker-compose up -d
 ```
 
-Set the path root settings in the ```example.env```
-
-```
-PATH_ROOT=/home/user/docker/
-```
-
 ## Link a website to the reverse-proxy
 To link a website to the running nginx-proxy, we need to update its own
 
 1 Environment variables
 ```
 services:
-  my-app: 
+  my-app:
     …
     environment:
-      VIRTUAL_HOST: your-website.tld 
+      VIRTUAL_HOST: your-website.tld
       VIRTUAL_PORT: 3000
       LETSENCRYPT_HOST: your-website.tld
       LETSENCRYPT_EMAIL: your-email@domain.tld
@@ -44,7 +38,7 @@ services:
 2. Ports
 ```
 services:
-  my-app: 
+  my-app:
     …
     expose:
       - 3000
