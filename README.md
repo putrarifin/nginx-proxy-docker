@@ -29,10 +29,13 @@ services:
       LETSENCRYPT_EMAIL: your-email@domain.tld
 ```
 
-VIRTUAL_HOST: your domain name, used in the nginx configuration.
-VIRTUAL_PORT: (opt.) the port your website is listening to (default to 80).
-LETSENCRYPT_HOST: your domain name, used in the Let’s Encrypt configuration.
-LETSENCRYPT_EMAIL: your email, used in the Let’s Encrypt configuration.
+-VIRTUAL_HOST: your domain name, used in the nginx configuration.
+
+-VIRTUAL_PORT: (opt.) the port your website is listening to (default to 80).
+
+-LETSENCRYPT_HOST: your domain name, used in the Let’s Encrypt configuration.
+
+-LETSENCRYPT_EMAIL: your email, used in the Let’s Encrypt configuration.
 
 2. Ports
 ```
