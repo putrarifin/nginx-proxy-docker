@@ -56,6 +56,6 @@ networks:
 ## Now lets start the website with:
 
 ```
-$ cd /home/user/docker/your-website.tld
+$ cd /home/user/docker/my-website.tld
 $ docker-compose up -d
 ```
